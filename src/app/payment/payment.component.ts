@@ -60,7 +60,7 @@ export class PaymentComponent implements OnInit {
       cardType: [null, [Validators.required]],
       cardNumber: [null, [Validators.required]],
       cardExpiry: [null, [Validators.required]],
-      cardCRV: [null, [Validators.required]],
+      cardCVC: [null, [Validators.required]],
       cardName: [null, [Validators.required, Validators.maxLength(50)]],
       email: [null, [Validators.email]]
     });
