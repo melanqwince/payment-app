@@ -69,6 +69,84 @@
     }
   }
 
+  @media(max-width: 991px) {
+
+    .box, .payment-invoice, .payment-interface {
+      display: block;
+      width: 100%;
+    }
+
+    .box {
+      max-width: 480px;
+    }
+
+    .payment-invoice {
+      .info-group {
+        &.product {
+          p {
+            font-size: 36px;
+            line-height: 1;
+            display: block;
+            height: auto;
+          }
+        }
+
+        &.amount {
+          position: static;
+          p {
+            font-size: 48px;
+
+            span {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .payment-interface {
+      min-height: 484px;
+    }
+  }
+
+  @media(max-width: 580px) {
+    align-items: flex-start;
+
+    .payment-invoice {
+      padding: 15px 15px;
+
+      .info-group {
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .payment-interface {
+      min-height: 465px;
+      padding: 15px 15px 70px 15px;
+
+      button.btn.btn-lg {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        margin: auto;
+        width: calc(100% - 30px);
+      }
+    }
+  }
+
+
+  @media(max-width: 360px) {
+    .payment-interface {
+      button.btn.btn-lg {
+        font-size: 14px;
+      }
+    }
+  }
+
   .form-group-wrapper {
     display: flex;
     justify-content: space-between;
@@ -84,9 +162,6 @@
     }
   }
 
-  ::ng-deeps .n .select-icon {
-
-  }
 
   ::ng-deep .ng-dropdown-panel {
     border: solid 1px rgba(103, 205, 226, 1);
