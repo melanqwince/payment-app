@@ -20,7 +20,7 @@ export class PaymentComponent implements OnInit {
   isSuccess: boolean = false;
   paymentForm: FormGroup;
   paymentResponse: PaymentResponse;
-  cardNumberMask: string = '0000-0000-0000-0000';
+  cardNumberMask: string = '0000 0000 0000 0000';
 
 
   constructor(
@@ -42,12 +42,12 @@ export class PaymentComponent implements OnInit {
     if (this.cardTypeSelected) {
       const nameType = this.cardTypeSelected.value.toLowerCase();
       if (nameType === CardTypeAvaible.AMEX.toLowerCase()) {
-        this.cardNumberMask = '0000-000000-00000';
+        this.cardNumberMask = '0000 000000 00000';
       } else {
-        this.cardNumberMask = '0000-0000-0000-0000';
+        this.cardNumberMask = '0000 0000 0000 0000';
       }
     } else {
-      this.cardNumberMask = '0000-0000-0000-0000';
+      this.cardNumberMask = '0000 0000 0000 0000';
     }
   }
 

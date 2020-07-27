@@ -1,0 +1,79 @@
+.form-group {
+  position: relative;
+  margin-bottom: 10px;
+
+
+  label, label.down {
+    position: absolute;
+    z-index: 10;
+    top: 14px;
+    text-transform: uppercase;
+    left: 18px;
+    color: #8ea8bc;
+    font-weight: 400;
+    font-size: 25px;
+    margin: 0;
+    letter-spacing: 1px;
+    transition: 0.25s all;
+  }
+
+  input.form-control.ng-invalid.ng-touched + label {
+    color: #c57785;
+  }
+
+  input.form-control:valid + label.down {
+    color: #8ea8bc !important;
+    top: 14px;
+    font-weight: 400;
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  input.form-control:focus + label, input.form-control:focus + label.down, input.form-control:valid + label, label.upper {
+    top: 10px;
+    color: $c-dark-gray !important;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 12px;
+  }
+
+
+  &.select {
+    label {
+      z-index: 1001;
+    }
+  }
+
+
+  input.form-control {
+    border: solid 1px rgba(75, 130, 141, 0.25);
+    background-color: $c-light-blue;
+    color: $c-black;
+    font-family: $f-roboto;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 30px 18px 14px 18px;
+    border-radius: 3px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    height: 64px;
+
+    &.ng-invalid.ng-touched {
+      border-color: #c54c6b !important;
+      color: $c-red;
+    }
+
+    &:focus {
+      border-color: #4cb6c5 !important;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 173, 255, 0.25) !important;
+
+      &.ng-invalid.ng-touched {
+        box-shadow: 0 0 0 0.2rem rgba(255, 0, 81, 0.25) !important;
+      }
+    }
+
+    //box-shadow: none ;
+  }
+}
