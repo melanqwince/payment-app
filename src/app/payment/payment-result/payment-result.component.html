@@ -1,17 +1,23 @@
 <ng-container *ngIf="isSuccess && paymentResponse">
-  <h5>
-    {{ paymentResponse.responseMessage }}
-  </h5>
-  <p class="invoice">
-    <small>Invoice number</small>
-    {{ paymentResponse.invoiceNo }}
-  </p>
+  <div class="message message--success">
+    <img src="assets/img/icons/success.svg" alt="Success">
+    <h5>
+      {{ paymentResponse.responseMessage }}
+    </h5>
+    <p class="invoice">
+      <small>Invoice number</small>
+      <span>{{ paymentResponse.invoiceNo }}</span>
+    </p>
+  </div>
 </ng-container>
 <ng-container *ngIf="!isSuccess && paymentResponse">
-  <h5>
-    Payment failed
-  </h5>
-  <p class="response-message">
-    {{ paymentResponse.responseMessage }}
-  </p>
+  <div class="message message--error">
+    <img src="assets/img/icons/error.svg" alt="Error">
+    <h5>
+      Payment failed
+    </h5>
+    <p class="response-message">
+      {{ paymentResponse.responseMessage }}
+    </p>
+  </div>
 </ng-container>

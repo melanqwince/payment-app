@@ -1,0 +1,62 @@
+@import '../../../styles/base/vars';
+
+:host {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+
+  .message {
+    text-align: center;
+    h5 {
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.44;
+      color: #2e5464;
+      margin: 14px 0 10px 0;
+    }
+
+    &--success {
+      p.invoice {
+        margin: 0;
+
+        small {
+          display: block;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: 1.1px;
+          color: #3f7388;
+          text-transform: uppercase;
+          margin: 15px 0 0 5px;
+        }
+
+        span {
+          display: block;
+          font-size: 26px;
+          font-weight: 400;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: 2.15px;
+          font-family: $f-roboto-light;
+          color: #ffffff;
+        }
+      }
+    }
+
+    &--error {
+      .response-message {
+        color: $c-red;
+      }
+    }
+  }
+}
