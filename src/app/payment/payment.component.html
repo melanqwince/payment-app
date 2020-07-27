@@ -17,15 +17,18 @@
             </label>
             <ng-select 
             id="selectCardType"
+            placeholder="Select card type"
             [items]="cardTypes"
+            [(ngModel)]="cardTypeSelected"
+            (change)="updateCardNumberMask()"
             bindLabel="value"
             [clearable]="false"
             formControlName="cardType">
-            <ng-template ng-label-tmp let-item="item">
+            <ng-template ng-label-tmp let-item="item" >
                 <span class="select-name">
                   {{ item.value }}
                 </span>
-                <span class="select-icon" style="position: absolute; right: 0px; top: 0px; height: 20px; width: 60px;">
+                <span class="select-icon" *ngIf="cardTypeSelected" style="position: absolute; right: 10px; top: 0px; height: 20px; width: 60px;">
                   <img style="display: block; height: 34px;" src="{{ '/assets/img/logos/' + item.value.toLowerCase() + '.svg' }}">
                 </span>
             </ng-template>
@@ -38,8 +41,6 @@
                     <img style="display: block; height: 34px;" src="{{ '/assets/img/logos/' + item.value.toLowerCase() + '.svg' }}">
                   </span>
                 </div>
-              
-
           </ng-template>
           </ng-select>
           </div>
@@ -48,6 +49,8 @@
               Card number
             </label>
             <input 
+              [mask]="cardNumberMask"
+              autocomplete="off"
               formControlName="cardNumber" 
               type="text" 
               class="form-control" 
@@ -58,6 +61,9 @@
               Expiry
             </label>
             <input 
+              autocomplete="off"
+              mask="00/00"
+              [specialCharacters]="[ '/' ]"
               formControlName="cardExpiry" 
               type="text" 
               class="form-control" 
@@ -68,6 +74,8 @@
               CRV
             </label>
             <input 
+              autocomplete="off"
+              mask="000"
               formControlName="cardCRV" 
               type="password" 
               class="form-control" 
@@ -78,8 +86,9 @@
               Name
             </label>
             <input 
+              autocomplete="off"
               formControlName="cardName" 
-              type="text" 
+              type="text"
               class="form-control" 
               id="nameInput">
           </div>
@@ -91,7 +100,7 @@
               formControlName="email" 
               type="email" 
               class="form-control" 
-              id="cardNumberInput">
+              id="emailInput">
           </div>
           <button class="btn btn-lg btn-primary" type="submit" [disabled]="!paymentForm.valid">
             Confirm Payment

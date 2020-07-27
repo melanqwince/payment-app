@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormGroup, FormBuilder , Validators } from '@angular/forms';
 import { CardType, CardTypeAvaible } from '../shared/interfaces/card-type.interface';
@@ -13,19 +13,21 @@ export class PaymentComponent implements OnInit {
 
 
   cardTypes: CardType[];
+  cardTypeSelected: CardType;
   cardAvaibleTypes: CardTypeAvaible[] = [CardTypeAvaible.VISA, CardTypeAvaible.MASTERCARD, CardTypeAvaible.AMEX];
   isLoading: boolean = true;
   isSubmitted: boolean = false;
   isSuccess: boolean = false;
   paymentForm: FormGroup;
   paymentResponse: PaymentResponse;
-
+  cardNumberMask: string = '0000-0000-0000-0000';
 
 
   constructor(
     private dataService: DataService,
     private fb: FormBuilder
-  ) { 
+  ) {
+    this.updateCardNumberMask();
     this.dataService.getListOfCardTypes().subscribe((res) => {
       if (res.cardTypes && res.cardTypes.length > 0) {
         this.cardTypes = res.cardTypes.filter((item) => this.cardAvaibleTypes.includes(item.value));
@@ -34,6 +36,19 @@ export class PaymentComponent implements OnInit {
     }, (err) => {
       console.error(err.message);
     });
+  }
+
+  updateCardNumberMask() {
+    if (this.cardTypeSelected) {
+      const nameType = this.cardTypeSelected.value.toLowerCase();
+      if (nameType === CardTypeAvaible.AMEX.toLowerCase()) {
+        this.cardNumberMask = '0000-000000-00000';
+      } else {
+        this.cardNumberMask = '0000-0000-0000-0000';
+      }
+    } else {
+      this.cardNumberMask = '0000-0000-0000-0000';
+    }
   }
 
   ngOnInit() {
@@ -46,8 +61,8 @@ export class PaymentComponent implements OnInit {
       cardNumber: [null, [Validators.required]],
       cardExpiry: [null, [Validators.required]],
       cardCRV: [null, [Validators.required]],
-      cardName: [null, [Validators.required]],
-      email: [null]
+      cardName: [null, [Validators.required, Validators.maxLength(50)]],
+      email: [null, [Validators.email]]
     });
   }
 

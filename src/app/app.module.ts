@@ -10,7 +10,12 @@ import { PaymentComponent } from './payment/payment.component';
 import { PaymentResultComponent } from './payment/payment-result/payment-result.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { DataService } from './data.service';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
+
+const maskConfig: Partial<IConfig> = {
+  validation: true,
+};
 
 @NgModule({
   declarations: [
@@ -23,6 +28,7 @@ import { DataService } from './data.service';
     BrowserModule,
     AppRoutingModule,
     NgSelectModule,
+    NgxMaskModule.forRoot(maskConfig),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
