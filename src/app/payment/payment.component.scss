@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+
+  .box {
+    max-width: 860px;
+    min-height: 480px;
+    width: 100%;
+    display: flex;
+  }
+
+  .btn-lg {
+    width: 100%;
+  }
+
+  .payment-invoice {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 23px 28px;
+    position: relative;
+
+    .info-group {
+      &.product {
+        p {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          line-height: 42px;
+          height: 84px;
+        }
+      }
+
+      &.amount {
+        position: absolute;
+        bottom: 23px;
+      }
+    }
+  }
+  
+  .payment-interface {
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 23px 28px;
+    background-image: linear-gradient(130deg, rgba(79, 172, 254, 0.6), rgba(0, 242, 254, 0.6) 105%);
+  }
+}
+

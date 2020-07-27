@@ -1,0 +1,60 @@
+.box {
+  background-color: $c-white;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 0 rgba(1, 22, 51, 0.37);
+  overflow: hidden;
+}
+
+.info-group {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  label {
+    font-size: 15px;;
+    opacity: 0.87;
+    color: $c-gray;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 38px;
+    color: $c-black;
+    font-family: $f-roboto-light;
+    margin: 0;
+    line-height: 1;
+  }
+
+  &.product {
+    p {
+      font-size: 42px;
+    }
+  }
+
+  &.date {
+    p {
+      line-height: 1;
+      span {
+        display: block;
+        font-size: 25px;
+        line-height: inherit;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  &.amount {
+    p {
+      letter-spacing: -1.8px;
+      font-size: 60px;
+      span {
+        font-size: 36px;
+      }
+    }
+  }
+}
